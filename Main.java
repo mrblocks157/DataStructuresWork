@@ -1,8 +1,9 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-
-        DequeNode<Integer> head = new DequeNode<>(17);
-        Deque<Integer> list = new Deque<>(head);
+        DoublyLinkedListNode<Integer> head = new DoublyLinkedListNode<>(17);
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>(head);
         System.out.println(list);
 
         list.append(5);
@@ -13,32 +14,25 @@ public class Main {
         list.prepend(3);
         System.out.println(list);
 
+        list.insert(80, 2);
+        System.out.println(list);
+
         System.out.println(list.popFront());
         System.out.println(list);
 
         System.out.println(list.popEnd());
         System.out.println(list);
 
-        System.out.println(list.length());
-
-        list.clear();
-
+        System.out.println(list.delete(2));
         System.out.println(list);
 
-        Validate v = new Validate();
-        System.out.println(v.Check("{(<[]>)}"));
+        System.out.println(list.find(7));
+        System.out.println(list.find(1));
 
-
-        BrowserHistory a = new BrowserHistory("Google");
-
-        a.visit("hello.world");
-        System.out.println(a.it.value);
-        a.back(3);
-        System.out.println(a.it.value);
-        a.visit("facebook.com");
-        System.out.println(a.it.value);
-        a.forward(1);
-        System.out.println(a.it.value);
+        ArrayList<Integer> array = list.toArray();
+        for (Integer num : array){
+            System.out.println(num);
+        }
 
     }
 }
