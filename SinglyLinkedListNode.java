@@ -2,9 +2,6 @@ public class SinglyLinkedListNode<Integer>{
     Integer value;
     SinglyLinkedListNode<Integer> next;
 
-    public SinglyLinkedListNode(){
-
-    }
     public SinglyLinkedListNode(Integer value){
         this.value=value;
     }
