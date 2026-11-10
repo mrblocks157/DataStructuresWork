@@ -12,7 +12,7 @@ public class Vigenere {
     }
 
     public String encipher(String key){
-        String shifted = "";
+        StringBuilder shifted = new StringBuilder();
         ArrayList<Character> keyListify = new ArrayList<>(key.length());
         for (int i = 0; i < key.length(); i++) {
             keyListify.add(key.charAt(i));
@@ -24,7 +24,7 @@ public class Vigenere {
         }
         for(Character c : listify){
             if(!Character.isLetter(c)){
-                shifted = shifted + c;
+                shifted.append(c);
                 continue;
             }
             if(i > keyListify.size()-1){
@@ -39,14 +39,14 @@ public class Vigenere {
                 shiftedAlphabet.add(alphabet.get(k));
             }
             int index = Character.toLowerCase(keyListify.get(i)) - 'a';
-            shifted = shifted + shiftedAlphabet.get(index);
+            shifted.append(shiftedAlphabet.get(index));
             i++;
         }
-        return shifted;
+        return shifted.toString();
     }
 
     public String decipher(String cipher, String key){
-        String shifted = "";
+        StringBuilder shifted = new StringBuilder();
         ArrayList<Character> keyListify = new ArrayList<>(key.length());
         for (int i = 0; i < key.length(); i++) {
             keyListify.add(key.charAt(i));
@@ -62,7 +62,7 @@ public class Vigenere {
         }
         for(Character c : cipherList){
             if(!Character.isLetter(c)){
-                shifted = shifted + c;
+                shifted.append(c);
                 continue;
             }
             if(i > keyListify.size()-1){
@@ -71,10 +71,10 @@ public class Vigenere {
             int keyNum = Character.toLowerCase(keyListify.get(i)) - 'a';
             int cNum = Character.toLowerCase(c) - 'a';
             int difference = (cNum - keyNum + 26) % 26;
-            shifted = shifted + alphabet.get(difference);
+            shifted.append(alphabet.get(difference));
             i++;
         }
-        return shifted;
+        return shifted.toString();
     }
 
     public static void main(String[] args){
